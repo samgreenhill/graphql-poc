@@ -12,7 +12,10 @@
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
         "outDir": "dist",
-        "rootDir": "src"
+        "rootDir": "src",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "lib": ["es2019", "esnext.asynciterable"]
     },
     "include": [
         "src/**/*"

@@ -12,11 +12,13 @@ lib-cov
 *.gz
 *.swp
 *.tsbuildinfo
+*.sql
 
 pids
 logs
 results
 tmp
+dist
 
 # Build
 public/css/main.css
@@ -38,9 +40,6 @@ bower_components
 # OS metadata
 .DS_Store
 Thumbs.db
-
-# Ignore built ts files
-**/dist/**/*
 
 # ignore yarn.lock
 yarn.lock

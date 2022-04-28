@@ -2,7 +2,7 @@
   "name": "graphql-poc",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,6 +10,11 @@
   "license": "ISC",
   "dependencies": {
     "apollo-server": "^3.6.7",
-    "graphql": "^16.4.0"
+    "class-validator": "^0.13.2",
+    "graphql": "^15.3.0",
+    "mysql2": "^2.3.3",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.1.1",
+    "typedi": "^0.10.0"
   }
 }

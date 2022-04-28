@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  mysql:
+    container_name: f1DB
+    image: mysql:5.7.37-debian
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      ACCEPT_EULA: "Y"
+      MYSQL_DATABASE: "f1db"
+      MYSQL_USER: "sam"
+      MYSQL_PASSWORD: "sam"
+    volumes:
+      - ./f1db.sql:/docker-entrypoint-initdb.d/f1db.sql:ro
