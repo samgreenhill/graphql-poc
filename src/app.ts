@@ -4,11 +4,13 @@ import { CircuitResolver } from "./resolvers/CircuitResolver";
 import { buildSchema } from "type-graphql";
 import { Container } from "typedi";
 import { ConstructorResolver } from "./resolvers/ConstructorResolver";
+import { DriverResolver } from "./resolvers/DriverResolver";
+import { RaceResolver } from "./resolvers/RaceResolver";
 
 async function bootstrap() {
 
   const schema = await buildSchema({
-    resolvers: [CircuitResolver, ConstructorResolver],
+    resolvers: [CircuitResolver, ConstructorResolver, DriverResolver, RaceResolver],
     container: Container
   });
 
