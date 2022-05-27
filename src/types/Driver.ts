@@ -1,4 +1,5 @@
 import { ID, Field, ObjectType, Int } from "type-graphql"
+import { Race } from "./Race";
 
 @ObjectType({ description: "Object representing a F1 driver" })
 export class Driver {
@@ -11,7 +12,7 @@ export class Driver {
     @Field(type => Int)
     number?: number;
 
-    @Field({nullable: true})
+    @Field({ nullable: true })
     code?: string;
 
     @Field()
@@ -21,11 +22,14 @@ export class Driver {
     surname?: string;
 
     @Field()
-    dob?: string;
+    dob?: Date;
 
     @Field()
     nationality?: string;
 
     @Field()
     url?: string;
+
+    @Field(type => Race)
+    races?: Race[];
 }

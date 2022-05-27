@@ -13,15 +13,15 @@ export class CircuitResolver {
 
     @Query(returns => [Circuit], { description: "Get all the F1 circuits from around the world" })
     async circuits(): Promise<Circuit[]> {
-        return (await this.database.getConnection().promise().query<RowDataPacket[]>("select * from circuits"))[0].map(r => CircuitResolver.convert(r));
+        return (await this.database.getConnection().promise().query<RowDataPacket[]>("select * from circuits"))[0].map(r => this.convert(r));
     }
 
     @Query(returns => Circuit, { description: "Get a F1 circuit by its identifier", nullable: true })
     async circuit(@Arg("id") id: string): Promise<Circuit> {
-        return (await this.database.getConnection().promise().query<RowDataPacket[]>("select * from circuits where circuitId = ?", id))[0].map(r => CircuitResolver.convert(r))[0];
+        return (await this.database.getConnection().promise().query<RowDataPacket[]>("select * from circuits where circuitId = ?", id))[0].map(r => this.convert(r))[0];
     }
 
-    public static convert(r: RowDataPacket) : Circuit {
+    convert(r: RowDataPacket) : Circuit {
         let c = new Circuit();
         c.id = r["circuitId"];
         c.reference = r["circuitRef"];

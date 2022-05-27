@@ -23,7 +23,7 @@ export class DriverResolver {
 
     private convert(r: RowDataPacket) : Driver {
         let d = new Driver();
-        d.id = r["circuitId"];
+        d.id = r["driverId"];
         d.reference = r["circuitRef"];
         d.number = r["number"];
         d.code = r["code"];

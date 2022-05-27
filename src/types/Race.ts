@@ -12,6 +12,8 @@ export class Race {
     @Field(type => Int)
     round?: string;
 
+    circuitId: string = "";
+
     @Field()
     circuit?: Circuit;
 
@@ -19,7 +21,7 @@ export class Race {
     name?: string;
 
     @Field()
-    date?: string;
+    date?: Date;
 
     @Field({nullable: true})
     time?: string;
