@@ -1,5 +1,6 @@
 import "reflect-metadata";
-import { ApolloServer } from "apollo-server";
+var express = require('express');
+import { createHandler } from 'graphql-http/lib/use/express';
 import { CircuitResolver } from "./resolvers/CircuitResolver";
 import { buildSchema } from "type-graphql";
 import { Container } from "typedi";
@@ -15,14 +16,14 @@ async function bootstrap() {
     container: Container
   });
 
-  // The ApolloServer constructor requires two parameters: your schema
-  // definition and your set of resolvers.
-  const server = new ApolloServer({ schema, debug: true });
+  // Create a express instance serving all methods on `/graphql`
+  // where the GraphQL over HTTP express request handler is
+  const app = express();
+  app.all('/graphql', createHandler({ schema }));
 
-  // The `listen` method launches a web server.
-  server.listen().then(({ url }) => {
-    console.log(`🚀  Server ready at ${url}`);
-  });
+  app.listen({ port: 4000 });
+  console.log('Listening to port 4000');
+
 }
 
 bootstrap();
